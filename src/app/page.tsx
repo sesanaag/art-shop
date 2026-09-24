@@ -1,7 +1,7 @@
 import { client } from "../../tina/__generated__/client";
 
 export default async function Home() {
-  let artworks = [];
+  let artworks: any[] = [];
   try {
     const artworkResponse = await client.queries.artworkConnection();
     artworks = artworkResponse.data.artworkConnection.edges || [];

@@ -54,7 +54,13 @@ export default defineConfig({
         label: "Global Settings",
         path: "content/global",
         format: "json",
-        isSingleton: true,
+        ui: {
+          global: true,
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
+        },
         fields: [
           {
             type: "string",

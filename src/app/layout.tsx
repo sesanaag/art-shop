@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
@@ -22,31 +22,29 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${playfair.variable} ${inter.variable} h-full antialiased`}
     >
-      <body className="bg-white text-black min-h-screen flex flex-col antialiased">
-        <nav className="sticky top-0 z-50 bg-white border-b border-black py-6">
+      <body className="bg-stone-50 text-stone-900 min-h-screen flex flex-col antialiased font-sans">
+        <nav className="sticky top-0 z-50 bg-stone-50/90 backdrop-blur-sm border-b border-stone-200 py-6">
           <div className="max-w-7xl mx-auto px-8 flex justify-between items-center">
-            <div className="text-xl font-medium tracking-[0.125em]">KATHMANDU CURATED</div>
+            <div className="text-xl font-medium tracking-[0.15em] font-serif uppercase">KATHMANDU CURATED</div>
             <div className="flex gap-10">
-              <Link href="/" className="text-sm uppercase tracking-widest hover:underline">
+              <Link href="/" className="text-sm uppercase tracking-widest hover:text-stone-500 transition-colors">
                 Gallery
               </Link>
-              <Link href="/about" className="text-sm uppercase tracking-widest hover:underline">
+              <Link href="/about" className="text-sm uppercase tracking-widest hover:text-stone-500 transition-colors">
                 About
               </Link>
-              <Link href="/contact" className="text-sm uppercase tracking-widest hover:underline">
+              <Link href="/contact" className="text-sm uppercase tracking-widest hover:text-stone-500 transition-colors">
                 Contact
               </Link>
             </div>
           </div>
         </nav>
-
         <main className="flex-1">
           {children}
         </main>
-
-        <footer className="border-t border-black py-8 text-center text-xs tracking-widest text-neutral-500">
+        <footer className="border-t border-stone-200 py-8 text-center text-xs tracking-widest text-stone-400">
           © {new Date().getFullYear()} KATHMANDU CURATED. ALL RIGHTS RESERVED.
         </footer>
       </body>

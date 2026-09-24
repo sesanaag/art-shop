@@ -10,7 +10,7 @@ export default async function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-white text-black pt-8">
+    <main className="min-h-screen bg-transparent text-stone-900 pt-12">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-7xl mx-auto px-8 pb-24">
         {artworks.map((edge) => {
           const art = edge?.node;
@@ -19,25 +19,25 @@ export default async function Home() {
           const coverImage = art.images?.[0] || "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?q=80&w=800";
 
           return (
-            <div key={art.id} className="group flex flex-col bg-white border border-black/10 hover:border-black transition-colors">
-              <div className="relative aspect-[4/5] overflow-hidden bg-neutral-100">
+            <div key={art.id} className="group flex flex-col bg-transparent border border-stone-200 hover:border-stone-400 transition-colors">
+              <div className="relative aspect-[4/5] overflow-hidden bg-stone-100">
                 <img 
                   src={coverImage} 
                   alt={art.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
-              <div className="p-8 flex flex-col flex-grow">
-                <h2 className="text-2xl font-light tracking-tight mb-1">{art.title}</h2>
-                <p className="text-lg mb-8">£{art.price}</p>
+              <div className="p-8 flex flex-col flex-grow text-center">
+                <h2 className="text-2xl font-serif italic tracking-tight mb-2">{art.title}</h2>
+                <p className="text-lg text-stone-500 mb-8">£{art.price}</p>
                 
                 <div className="mt-auto">
                   {art.soldOut ? (
-                    <button disabled className="w-full py-4 px-4 border border-black/30 text-neutral-400 font-semibold uppercase tracking-widest text-sm cursor-not-allowed">
+                    <button disabled className="w-full py-4 px-4 border border-stone-300 text-stone-400 font-semibold uppercase tracking-widest text-sm cursor-not-allowed">
                       Sold Out
                     </button>
                   ) : (
-                    <button className="w-full py-4 px-4 bg-black text-white hover:bg-neutral-900 transition-colors font-semibold uppercase tracking-widest text-sm">
+                    <button className="w-full py-4 px-4 bg-stone-900 text-stone-50 hover:bg-stone-700 transition-colors font-semibold uppercase tracking-widest text-sm">
                       Buy Now
                     </button>
                   )}

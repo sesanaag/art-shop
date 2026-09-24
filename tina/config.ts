@@ -49,6 +49,27 @@ export default defineConfig({
           },
         ],
       },
+      {
+        name: "global",
+        label: "Global Settings",
+        path: "content/global",
+        format: "json",
+        isSingleton: true,
+        fields: [
+          {
+            type: "string",
+            name: "siteTitle",
+            label: "Site Title",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "contactEmail",
+            label: "Contact Email",
+            required: true,
+          },
+        ],
+      },
     ],
   },
 });
